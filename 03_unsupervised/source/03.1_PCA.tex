@@ -402,9 +402,38 @@ axes where all it does is scale things!
 
 In actual computational terms, we make $P$ using the eigenvectors as
 columns, so $P=[\mathbf{e}_1,\mathbf{e}_2,\ldots,\mathbf{e}_n$. As we
-  pointed out there is some question of the length of the
-  eigenvectors, it is convenient in this context to make them unit length. 
-For the example above then:
+pointed out there is some question of the length of the eigenvectors,
+it is convenient in this context to make them unit length. There are
+technical details here that I am sort of hiding but are actually
+interesting and fascinating, basically for a symmetric matrix with an
+inverse, the example we are dealing with here, the eigenvectors are
+orthogonal, lets first make them have unit length so:
+\begin{equation}
+|\mathbf{e}_i|=1
+\end{equation}
+for all $i$, now
+\begin{equation}
+\mathbf{e}_i^{\mathsf T}\mathbf{e}_j=\delta_{ij}
+\end{equation}
+where I amn't explaining what happens if two eigenvectors have the
+same eigenvalue, in that case you can make the eigenvectors
+orthogonal, they aren't automatically orthogonal as they are when the
+eigenvalues are different; again these are details you can read
+about. The key thing is that in this case $P$ has the special property
+that its transpose is its inverse:
+\begin{equation}
+P^{\mathsf T}P=\mathbf{1}
+\end{equation}
+As a point of terminology this means $P$ is an \textsl{orthogonal}
+matrix.  You can check why that might be the case if you want. Another
+point to learn more about if you want is that an orthogonal matrix
+represents a rotation, or a rotation and a reflection, so
+\begin{equation}
+\mathbf{y}=P\mathbf{x}
+\end{equation}
+means that $\mathbf{y}$ is a rotation of $\mathbf{x}$, or a rotation and reflection.
+
+Anyhow, for the example above then:
   \begin{equation}
     P=\frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1\end{pmatrix}
   \end{equation}
@@ -431,8 +460,6 @@ For the example above then:
 \end{pmatrix}^{\mathsf T}
 \end{equation}
   
-
-
 \subsection*{A first look at PCA}
 
 \begin{figure}[h]
@@ -487,7 +514,7 @@ discovering, which in this simple example is clear from the graph, is
 the direction $x=y$ where the real action is happening; the data is
 something like ``every data point has some value that determines how
 big $x$ and $y$ both are, except there is a little bit of noise that
-makes them a bit different. In this simple example the noise is
+makes them a bit different''. In this simple example the noise is
 completely unrelated to the signal, so knowing how far you are in the
 $x=y$ direction does not tell you anything about what is happening in
 the $x=-y$ direction. For real data this is not often true, but it is
