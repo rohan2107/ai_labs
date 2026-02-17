@@ -47,3 +47,4 @@ Thumbs.db
 # Data files (uncomment if you want to exclude large datasets)
 # *.csv
 # *.xlsx
+/worksheets/data
